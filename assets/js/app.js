@@ -10,6 +10,7 @@ const runSearch = query => {
 			response.json()
 				.then(function(data) {
 					displayResult(data);
+					console.log(data.data);
 				})
 		} else {
 			alert("Error, could not connect to API");
@@ -32,6 +33,8 @@ const displayResult = data => {
 		isItLegal.textContent = "It's legal for Modern!";
 	} else if ((data.data[0].legalities.modern = "not_legal")) {
 		isItLegal.textContent = "It's not legal for Modern!";
+	} else if ((data.data[0].legalities.modern = "not_legal")) {
+		isItLegal.textContent = "It's banned in Modern!";
 	} else {
 		isItLegal.textContent = "No result."
 	}
